@@ -244,18 +244,22 @@ class Formgenerator{
 
     protected function getContentBefore($fieldName)
     {
+        $all = $this->getSettings('extras', '*', 'content_before');
         $content = $this->getSettings('extras', $fieldName, 'content_before');
         if (isset($content) AND !empty($content)) {
-            return $this->getSettings('extras', $fieldName, 'content_before');
+            return $content;
         }
+        return $all;
     }
 
     protected function getContentAfter($fieldName)
     {
+        $all = $this->getSettings('extras', '*', 'content_after');
         $content = $this->getSettings('extras', $fieldName, 'content_after');
         if (isset($content) AND !empty($content)) {
             return $this->getSettings('extras', $fieldName, 'content_after');
         }
+        return $all;
     }
 
     protected function getInputType($dataType, $name)
